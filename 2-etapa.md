@@ -9,7 +9,7 @@
 ```sql
     insert into professores (nome, area, id_curso) values ('Jon Oliva', 'Infra', 25), ('Lemmy Kilmister', 'design', 24), ('Neil Peart', 'design', 23), ('ozzy Osborne', 'desenvolvimento', 22), ('David Gilmour', 'desenvolvimento', 21);
 ```
-## cadastrando os alunos
+### cadastrando os alunos
 
 ```sql
     INSERT INTO alunos (nome, data_nascimento, primeira_nota, segunda_nota, id_curso) VALUES 
