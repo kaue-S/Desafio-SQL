@@ -64,3 +64,22 @@
 
 ##
 
+### 7 consulta para mostrar os nomes dos professores e o curso que eles lecionam
+
+```sql
+    SELECT professores.nome AS "Professor", cursos.titulo AS "Curso" FROM professores INNER JOIN cursos ON professores.id_curso = cursos.id ORDER BY professores.nome;
+```
+![resultado da pesquisa](imagens-consultas/7-consulta.png)
+
+##
+
+### 8 consulta para mostrar os nomes dos alunos, nomes dos cursos e o professor de cada curso
+
+```sql
+     SELECT alunos.nome AS "alunos", cursos.titulo AS "Curso", professores.nome AS "Professores" FROM alunos INNER JOIN cursos ON alunos.id_curso = cursos.id inner join professores ON cursos.id_professor = professores.id;
+```
+![resultado da pesquisa](imagens-consultas/8-consulta.png)
+
+##
+
+### 9 consulta para mostrar a quantidade de alunos de cada curso 
