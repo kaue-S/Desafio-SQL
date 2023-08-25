@@ -83,3 +83,71 @@
 ##
 
 ### 9 consulta para mostrar a quantidade de alunos de cada curso 
+
+```sql
+    SELECT cursos.titulo AS "Cursos", COUNT(alunos.id) AS " QTD alunos"
+    FROM cursos
+    INNER JOIN alunos ON cursos.id = alunos.id_curso
+    GROUP BY cursos.titulo
+    ORDER BY "QTD alunos" DESC;
+```
+![resultado da pesquisa](imagens-consultas/9-consulta.png)
+
+##
+
+### 10  consulta que mostra o nome do aluno, notas, media em dois cursos específicos e listado por ordem alfabética dos alunos
+
+```sql
+SELECT alunos.nome, cursos.titulo AS "Curso", alunos.primeira_nota AS "Primeira nota", alunos.segunda_nota AS "Segunda nota", 
+ROUND((alunos.primeira_nota + alunos.segunda_nota) / 2, 2) AS media
+FROM alunos
+INNER JOIN cursos ON alunos.id_curso = cursos.id
+WHERE alunos.id_curso = 21 OR alunos.id_curso = 22
+ORDER BY alunos.nome;
+
+```
+![resultado da pesquisa](imagens-consultas/10-consulta.png)
+
+##
+
+### 11 alterando o nome do curso de figma para adobe xd
+
+```sql
+    UPDATE cursos SET titulo = "Adobe XD" WHERE id = 24;
+    UPDATE cursos SET carga_horaria = 15 WHERE id = 24;
+```
+![resultado da pesquisa](imagens-consultas/11-consulta.png)
+
+##
+
+### 12 deletando um aluno do curso de ui/ux e um aluno do curso de redes
+
+```sql
+    DELETE FROM alunos WHERE id = 4 OR id = 5;
+```
+![resultado da pesquisa](imagens-consultas/12-consulta.png)
+
+##
+
+### 13 mostrando o nome dos alunos e cursos que fazem em ordem alfabética
+
+```sql
+SELECT alunos.nome, cursos.titulo AS "Curso" FROM alunos
+INNER JOIN cursos ON alunos.id_curso = cursos.id
+ORDER BY alunos.nome;
+```
+![resultado da pesquisa](imagens-consultas/13-consulta.png)
+
+##
+
+# outros desafios
+
+
+## 1 Criar uma consulta que calcule a idade do aluno
+```sql
+    SELECT alunos.nome, TIMESTAMPDIFF(YEAR, alunos.data_nascimento, CURDATE()) AS "idade" FROM alunos;
+
+```
+![resultado da pesquisa](imagens-consultas/14-consulta.png)
+
+
